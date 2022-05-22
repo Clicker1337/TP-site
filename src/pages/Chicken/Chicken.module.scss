@@ -1,0 +1,7 @@
+$background-color: rgba(247, 245, 241, 1);
+
+.chicken {
+    background-color: $background-color;
+    flex-grow: 1;
+    display: flex;
+}

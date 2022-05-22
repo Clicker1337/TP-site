@@ -1,0 +1,45 @@
+$background-color: rgba(247, 245, 241, 1);
+
+.cards {
+    background-color: $background-color;
+    flex-grow: 1;
+    display: flex;
+}
+
+.container {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+.category_block {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    width: 370px;
+    height: 309px;
+    margin-right: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.titleblock {
+    font-weight: 600;
+    font-size: 22px;
+    color: rgba(32, 32, 32, 1);
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.category_block:hover {
+    transform: translateY(-8px);
+
+}
