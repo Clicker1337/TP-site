@@ -1,0 +1,14 @@
+.custom-select {
+    &__control {
+        background-color: transparent !important;
+        border: 20px !important;
+        border-radius: none !important;
+        border-bottom: 50px solid #66676e !important;
+    }
+
+    &__value-container {
+        padding: 0 !important;
+        cursor: text !important;
+    }
+
+}

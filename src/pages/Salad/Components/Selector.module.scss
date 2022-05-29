@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    margin: 15px 45px 0px 0px;
+}
+
+.container:first-child {
+    margin-left: 217px;
+}
+
+.select {
+    margin: 0px 45px 0px 0px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    width: 136px;
+    height: 34px;
+}
+
+.label {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 1000px 110px 110px
+}
