@@ -10,19 +10,6 @@ import axios from 'axios';
 interface Props {
 }
 
-const options1 = [
-    { value: 'meat-1', label: 'Курица' },
-    { value: 'meat-2', label: 'Лосось' },
-    { value: 'meat-3', label: 'Говядина' },
-    { value: 'meat-4', label: 'Треска' }
-]
-
-const options2 = [
-    { value: 'meat-1', label: 'Курица' },
-    { value: 'meat-2', label: 'Лосось' },
-    { value: 'meat-3', label: 'Говядина' },
-    { value: 'meat-4', label: 'Треска' }
-]
 const options3 = [
     { value: 'oth-1', label: 'Масло' },
     { value: 'oth-2', label: 'Молоко' },
@@ -47,15 +34,11 @@ function Selector({ }: any) {
         }
     }
 
-
-
     return (
         <div className={s.container}>
-            <div className={s.select}> <IngrList ingrs={ingrs} /> </div>
-            <Select placeholder="Выберите" className={s.select} />
-            <Select placeholder="Выберите" className={s.select} options={options3} />
-            <p className={s.label}> </p>
-
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Veg"} /> </div>
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Meat"} /> </div>
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Other"} /> </div>
         </div>);
 }
 
