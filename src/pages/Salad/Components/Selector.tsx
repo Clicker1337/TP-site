@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from "./Selector.module.scss"
 import Select from 'react-select'
 import '../../../styles/react-select.scss';
 import './react-select.scss'
-import { ArrayIng } from './axiosselector';
+import IngrList from './IngrList';
+import { Iingr } from '../../../types/types';
+import axios from 'axios';
 
 interface Props {
 }
 
 const options1 = [
-    { value: 'veg-1', label: 'Лук' },
-    { value: 'veg-2', label: 'Капуста' },
-    { value: 'veg-3', label: 'Помидоры' },
-    { value: 'veg-4', label: 'Огурцы' }
+    { value: 'meat-1', label: 'Курица' },
+    { value: 'meat-2', label: 'Лосось' },
+    { value: 'meat-3', label: 'Говядина' },
+    { value: 'meat-4', label: 'Треска' }
 ]
+
 const options2 = [
     { value: 'meat-1', label: 'Курица' },
     { value: 'meat-2', label: 'Лосось' },
@@ -27,26 +30,31 @@ const options3 = [
     { value: 'oth-4', label: 'Томатная паста' }
 ];
 
-let type4 = "овощи"
-const options4 = ArrayIng(type4)
-
 function Selector({ }: any) {
 
-    const [labeltext, setSelectedLabel] = useState('');
+    const [ingrs, setIngrs] = useState<Iingr[]>([])
 
-    const handleChange = (e: any) => {
-        setSelectedLabel(e.label);
+    useEffect(() => {
+        fetchIngrs()
+    }, [])
+
+    async function fetchIngrs() {
+        try {
+            const response = await axios.get<Iingr[]>('https://jsonplaceholder.typicode.com/users')
+            setIngrs(response.data)
+        } catch (e) {
+            alert(e)
+        }
     }
+
+
 
     return (
         <div className={s.container}>
-            <Select className={s.select} options={options1}
-                placeholder="Выберите"
-                onChange={handleChange}
-            />
-            <Select placeholder="Выберите" className={s.select} options={options2} />
+            <div className={s.select}> <IngrList ingrs={ingrs} /> </div>
+            <Select placeholder="Выберите" className={s.select} />
             <Select placeholder="Выберите" className={s.select} options={options3} />
-            <p className={s.label}> {labeltext} </p>
+            <p className={s.label}> </p>
 
         </div>);
 }
