@@ -2,16 +2,14 @@ import React, { FC } from 'react'
 import Select from 'react-select';
 import { Iingr } from '../../../types/types';
 
-
 interface IngrItemProps {
-    ingr: Iingr;
-
+    item: string
 }
 
-const IngrItem: FC<IngrItemProps> = ({ ingr }) => {
+const IngrItem: FC<IngrItemProps> = ({ item }) => {
     return (
         <div>
-            {ingr.name}
+            <p> {item} </p>
         </div>
     )
 }

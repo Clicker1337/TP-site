@@ -2,15 +2,16 @@ import s from './Salad.module.scss'
 import block1 from '../../assets/images/block1.png'
 import Selector from './Components/Selector'
 import './Components/Selector'
-import Select from 'react-select'
+import ReactDOM from 'react-dom'
 
-type Props = {}
+interface Props {
+}
 
-let text = "nothing"
+const element = <Selector id='label'/>
 
+export const Salad = (items: Props) => {
 
-
-export const Salad = (props: Props) => {
+  //ReactDOM.render(element, document.getElementById('root'))
 
   return (
     <div className={s.salad}>
@@ -20,7 +21,7 @@ export const Salad = (props: Props) => {
         <p className={s.title2}>Выбранное:</p>
         <div className={s.container}>
           <div className={s.textbox}>
-
+          {element}
           </div>
           <div className={s.textbox}>
 
@@ -46,12 +47,12 @@ export const Salad = (props: Props) => {
 
 
         <div className={s.container3}>
-          <Selector/>
+          <Selector id='selector'/>
         </div>
-
       </div>
 
 
     </div>
   )
 }
+
