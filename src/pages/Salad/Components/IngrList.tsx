@@ -2,6 +2,7 @@ import axios from "axios";
 import { FC, useEffect, useState } from "react";
 import Select from 'react-select'
 import { Iingr } from "../../../types/types";
+import { SaladRecipes } from "../../SaladRecipes/SaladRecipes";
 import s from './IngrList.module.scss'
 
 interface IngrListProps {
@@ -14,6 +15,12 @@ interface Options {
     label: string;
 }
 
+declare global {
+    var Gvegetable: number;
+    var Gmeat: number;
+    var Gother: number;
+}
+
 const IngrList: FC<IngrListProps> = ({ ingrs, id }) => {
 
     const [options1, setOptions1] = useState<Options[]>([])
@@ -21,49 +28,52 @@ const IngrList: FC<IngrListProps> = ({ ingrs, id }) => {
     const [options3, setOptions3] = useState<Options[]>([])
 
     for (var i = 0; i < ingrs.length; i++) {
-        if (ingrs[i].id % 4 === 0) {
+        if (ingrs[i].type == 'Овощ') {
             options1[i] = { value: i, label: ingrs[i].name }
         }
     }
 
     for (var i = 0; i < ingrs.length; i++) {
-        if (ingrs[i].id % 2 === 1) {
+        if (ingrs[i].type == 'Мясо') {
             options2[i] = { value: i, label: ingrs[i].name }
         }
     }
 
     for (var i = 0; i < ingrs.length; i++) {
-        if (ingrs[i].id % 3 === 0) {
+        if (ingrs[i].type == 'другое') {
             options3[i] = { value: i, label: ingrs[i].name }
         }
     }
 
-    const [veg, setVeg] = useState('');
-    const [meat, setMeat] = useState('');
-    const [other, setOther] = useState('');
+    const [veg, setVeg] = useState(0);
+    const [meat, setMeat] = useState(0);
+    const [other, setOther] = useState(0);
 
     const changeHandler1 = (e: any) => {
-        setVeg(e.label)
+        setVeg(e.value + 1);
+        globalThis.Gvegetable = (e.value + 1);
     }
     const changeHandler2 = (e: any) => {
-        setMeat(e.label)
+        setMeat(e.id)
+        globalThis.Gmeat = (e.value + 1);
     }
     const changeHandler3 = (e: any) => {
-        setOther(e.label)
+        setOther(e.id)
+        globalThis.Gother = (e.value + 1);
     }
 
     function fetchInfo() {
-        console.log('fetchInfo выполнилась')
-        alert('Функция выполнилась')
-        try {
             axios.post('/', {
-                veg: veg,
-                meat: meat,
-                other: other
+                veg: globalThis.Gvegetable,
+                meat: globalThis.Gmeat,
+                other: globalThis.Gother
             })
-        } catch (e) {
-            alert(e)
-        }
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 
 
@@ -89,10 +99,6 @@ const IngrList: FC<IngrListProps> = ({ ingrs, id }) => {
         case 'button': return (<div className={s.buttonwrapper}>
             <button className={s.button} onClick={fetchInfo}> Применить </button>
             <button className={s.button} onClick={() => document.location.href = "/saladrecipes"}> Продолжить </button> </div>
-        );
-
-        case 'Selected': return (
-            <div><p> {veg} {meat} {other} </p></div>
         );
 
         default: return null

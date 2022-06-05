@@ -1,7 +1,6 @@
 import s from './Recipe.module.scss'
 import React, { FC } from 'react'
 import { Irecipe } from '../../../types/types'
-import { userInfo } from 'os'
 
 interface RecipeListProps {
   recipes: Irecipe[]

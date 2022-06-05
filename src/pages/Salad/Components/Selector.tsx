@@ -28,6 +28,7 @@ function Selector({ id }: any) {
             alert(e)
         }
     }
+    
 switch(id) {
     case 'selector':
     return (<div>

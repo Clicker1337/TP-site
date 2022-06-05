@@ -7,11 +7,19 @@ import ReactDOM from 'react-dom'
 interface Props {
 }
 
-const element = <Selector id='label'/>
+function tick() {
+  const element1 = (<p> {globalThis.Gvegetable} </p>);
+  const element2 = (<p> {globalThis.Gmeat} </p>);
+  const element3 = (<p> {globalThis.Gother} </p>);
+  // highlight-next-line
+  ReactDOM.render(element1, document.querySelector('#veglabel'))
+  ReactDOM.render(element2, document.querySelector('#meatlabel'))
+  ReactDOM.render(element3, document.querySelector('#otherlabel'))
+}
+
+setInterval(tick, 100);
 
 export const Salad = (items: Props) => {
-
-  //ReactDOM.render(element, document.getElementById('root'))
 
   return (
     <div className={s.salad}>
@@ -21,13 +29,13 @@ export const Salad = (items: Props) => {
         <p className={s.title2}>Выбранное:</p>
         <div className={s.container}>
           <div className={s.textbox}>
-          {element}
+            <div id="veglabel" />
           </div>
           <div className={s.textbox}>
-
+            <div id="meatlabel" />
           </div>
           <div className={s.textbox}>
-
+            <div id="otherlabel" />
           </div>
         </div>
 
@@ -47,7 +55,7 @@ export const Salad = (items: Props) => {
 
 
         <div className={s.container3}>
-          <Selector id='selector'/>
+          <Selector id='selector' />
         </div>
       </div>
 
