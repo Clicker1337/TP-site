@@ -88,7 +88,7 @@ const IngrList: FC<IngrListProps> = ({ ingrs, id }) => {
             );
         case 'button': return (<div className={s.buttonwrapper}>
             <button className={s.button} onClick={fetchInfo}> Применить </button>
-            <button className={s.button} onClick={() => document.location.href = "/salad"}> Продолжить </button> </div>
+            <button className={s.button} onClick={() => document.location.href = "/saladrecipes"}> Продолжить </button> </div>
         );
 
         case 'Selected': return (

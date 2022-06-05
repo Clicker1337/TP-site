@@ -1,17 +1,23 @@
 import s from './Recipe.module.scss'
 import React, { FC } from 'react'
+import { Irecipe } from '../../../types/types'
+import { userInfo } from 'os'
 
-interface RecipeItem {
-  item: string
+interface RecipeListProps {
+  recipes: Irecipe[]
 }
 
-const SaladRecipes: FC<RecipeItem> = ({ item }) => {
+const SaladRecipes: FC<RecipeListProps> = ({ recipes }) => {
 
   return (
-    <div className={s.recipe}>
-      <div className={s.block123}>
-        <p> {item} </p>
-      </div>
+    <div className={s.main}>
+      {recipes.map(recipe =>
+        <div className={s.recipe}>
+          <div className={s.block123}>
+            <div key={recipe.id}> {recipe.name} </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
