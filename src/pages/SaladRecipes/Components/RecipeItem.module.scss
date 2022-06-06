@@ -1,0 +1,21 @@
+$background-color: rgba(247, 245, 241, 1);
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe {
+    background-color: $background-color;
+    width: 290px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.block123 {
+    padding-top: 10px;
+    font-weight: 600;
+    text-align: center;
+}

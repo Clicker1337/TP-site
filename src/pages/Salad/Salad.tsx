@@ -3,21 +3,16 @@ import block1 from '../../assets/images/block1.png'
 import Selector from './Components/Selector'
 import './Components/Selector'
 import ReactDOM from 'react-dom'
+import RecipeList from '../SaladRecipes/Components/RecipeList'
 
 interface Props {
 }
 
-function tick() {
-  const element1 = (<p> {globalThis.Gvegetable} </p>);
-  const element2 = (<p> {globalThis.Gmeat} </p>);
-  const element3 = (<p> {globalThis.Gother} </p>);
-  // highlight-next-line
-  ReactDOM.render(element1, document.querySelector('#veglabel'))
-  ReactDOM.render(element2, document.querySelector('#meatlabel'))
-  ReactDOM.render(element3, document.querySelector('#otherlabel'))
+declare global {
+  var GV: number;
+  var GM: number;
+  var GO: number;
 }
-
-setInterval(tick, 100);
 
 export const Salad = (items: Props) => {
 
@@ -29,13 +24,14 @@ export const Salad = (items: Props) => {
         <p className={s.title2}>Выбранное:</p>
         <div className={s.container}>
           <div className={s.textbox}>
-            <div id="veglabel" />
+            <p> {globalThis.GVL} </p>
           </div>
           <div className={s.textbox}>
-            <div id="meatlabel" />
+          <p> {globalThis.GML} </p>
+            {globalThis.GV}
           </div>
           <div className={s.textbox}>
-            <div id="otherlabel" />
+          <p> {globalThis.GOL} </p>
           </div>
         </div>
 
@@ -59,6 +55,7 @@ export const Salad = (items: Props) => {
         </div>
       </div>
 
+      <RecipeList />
 
     </div>
   )

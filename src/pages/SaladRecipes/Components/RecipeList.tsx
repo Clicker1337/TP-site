@@ -7,14 +7,9 @@ import s from './RecipeList.module.scss'
 const RecipeList = () => {
 
     const [recipes, setRecipes] = useState<Irecipe[]>([])
-
-    useEffect(() => {
-        fetchIngrs()
-    }, [])
-
     async function fetchIngrs() {
         try {
-            const response = await axios.get<Irecipe[]>('https://jsonplaceholder.typicode.com/users')
+            const response = await axios.get<Irecipe[]>('https://jsonplaceholder.typicode.com/users?_limit=' + globalThis.Gvegetable)
             setRecipes(response.data)
         } catch (e) {
             alert(e)
@@ -24,7 +19,8 @@ const RecipeList = () => {
     return (
         <div className={s.saladrecipes}>
             <div className={s.maincontainer}>
-                <Recipe recipes={recipes} />
+                <button className={s.button} onClick={fetchIngrs}> показать рецепты </button>
+                    <Recipe recipes={recipes} />
             </div>
         </div>
     )

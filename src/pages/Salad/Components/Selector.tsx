@@ -10,9 +10,7 @@ interface Props {
     id: string
 }
 
-
-
-function Selector({ id }: any) {
+const Selector = ({ id }: any) => {
 
     const [ingrs, setIngrs] = useState<Iingr[]>([])
 
@@ -22,33 +20,33 @@ function Selector({ id }: any) {
 
     async function fetchIngrs() {
         try {
-            const response = await axios.get<Iingr[]>('https://jsonplaceholder.typicode.com/users')
+            const response = await axios.get<Iingr[]>('https://jsonplaceholder.typicode.com/users?_limit=10')
             setIngrs(response.data)
         } catch (e) {
             alert(e)
         }
     }
     
-switch(id) {
-    case 'selector':
+const [name, setName] = useState()
+const [name1, setName1] = useState()
+
+const handleChangeName1 = (name1: any) => {
+    setName(name1)
+}
+const handleChangeName = (name: any) => {
+    setName(name)
+}
+
     return (<div>
         <div className={s.container}>
-            <div className={s.select}> <IngrList ingrs={ingrs} id={"Veg"} /> </div>
-            <div className={s.select}> <IngrList ingrs={ingrs} id={"Meat"} /> </div>
-            <div className={s.select}> <IngrList ingrs={ingrs} id={"Other"} /> </div>
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Veg"} onChange={handleChangeName1}/> </div>
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Meat"} onChange={handleChangeName}/> </div>
+            <div className={s.select}> <IngrList ingrs={ingrs} id={"Other"} onChange={handleChangeName}/> </div>
         </div>
-        <div className={s.buttons}> <IngrList ingrs={ingrs} id={"button"} />
+        <div className={s.buttons}> <IngrList ingrs={ingrs} id={"button"} onChange={handleChangeName}/>
         </div>
     </div>
     );
-
-    case 'label':
-        return(<div>
-            <div> <IngrList ingrs={ingrs} id={"Selected"} /> </div>
-        </div>)
-
-    default: return null
-}
 }
 
 export default Selector;

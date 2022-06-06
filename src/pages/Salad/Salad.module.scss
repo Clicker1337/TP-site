@@ -5,6 +5,7 @@ $background-color: rgba(247, 245, 241, 1);
     flex-grow: 1;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .ingredients {
@@ -13,7 +14,7 @@ $background-color: rgba(247, 245, 241, 1);
     height: 420px;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
-    margin: 0 auto;
+    margin: 50px auto auto auto;
 }
 
 .title1 {
@@ -54,8 +55,9 @@ $background-color: rgba(247, 245, 241, 1);
     justify-content: space-around;
 
     p {
-        font-weight: 700;
+        font-weight: 600;
         margin-top: 15px;
+        font-size: 14px;
     }
 }
 
