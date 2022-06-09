@@ -1,8 +1,11 @@
 $background-color: rgba(247, 245, 241, 1);
 
-.salad {
+.background {
     background-color: $background-color;
     flex-grow: 1;
+}
+
+.salad {
     display: flex;
     align-items: center;
     flex-direction: column;

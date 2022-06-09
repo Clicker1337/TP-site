@@ -1,0 +1,25 @@
+$background-color: rgba(247, 245, 241, 1);
+
+.container {
+    margin-bottom: 25px;
+}
+
+.main {
+    background-color: $background-color;
+    width: 885px;
+    min-height: 25px;
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba($color: #bba18a, $alpha: 1.0);
+
+    padding: 0px 0 0 5px;
+}
+
+.comment {
+    font-size: 14px;
+    padding: 5px 10px 10px 5px;
+}

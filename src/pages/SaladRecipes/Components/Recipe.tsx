@@ -9,7 +9,14 @@ interface RecipeListProps {
   recipes: Irecipe[];
 }
 
+declare global {
+  var recipeID: number;
+}
+
 const SaladRecipes: FC<RecipeListProps> = ({ recipes }) => {
+
+
+  //recipes.map((recipe) => (recipeID = recipe.id));
 
   const navigate = useNavigate()
 

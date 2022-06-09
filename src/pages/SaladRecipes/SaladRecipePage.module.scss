@@ -15,13 +15,71 @@ $background-color: rgba(247, 245, 241, 1);
 
 }
 
+.upperside {
+    display: flex;
+
+    margin-bottom: 25px;
+}
+
+.image {
+    width: 420px;
+    height: 220px;
+    //background-color: aquamarine;
+    border-radius: 5px;
+
+    margin-top: 90px;
+}
+
+.bottomside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .title1 {
     font-weight: 700;
     font-size: 30px;
-    margin: 0 auto;
+    margin: 45px 0 25px 0;
 }
 
 .leftside {
     padding-top: 20px;
-    padding-left: 20px;
+    padding-left: 10px;
+    width: 466px;
+    margin-left: 15px;
+}
+
+
+.rightside {
+    max-width: 466px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.button {
+    height: 25px;
+    width: 90px;
+    background-color: rgb(78, 78, 78);
+    color: rgba(247, 245, 241, 1);
+    border-radius: 5px;
+    border: none;
+
+    transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+    background-color: rgb(51, 51, 51);
+}
+
+.button:active {
+    transform: translateY(1px);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 229, 199);
 }

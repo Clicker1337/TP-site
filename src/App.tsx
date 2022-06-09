@@ -7,6 +7,7 @@ import { Salad } from './pages/Salad/Salad';
 import { Soup } from './pages/Soup/Soup';
 import { Chicken } from './pages/Chicken/Chicken';
 import { SaladRecipePage } from './pages/SaladRecipes/SaladRecipePage';
+import { Profile } from './pages/Profile/Profile';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/soup"  element={ <Soup/> }/>
         <Route path="/chicken"  element={ <Chicken/> }/>
         <Route path='/cards' element={ <Cards/> } />
+        <Route path='/profile' element={ <Profile/> } />
       </Routes>
       </div>
   );
