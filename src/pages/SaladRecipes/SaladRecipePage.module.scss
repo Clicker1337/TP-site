@@ -15,6 +15,24 @@ $background-color: rgba(247, 245, 241, 1);
 
 }
 
+.input {
+    border: none;
+    background-color: $background-color;
+    border-radius: 5px;
+    width: 750px;
+    height: 30px;
+}
+.input:focus {
+    border: none;
+    border-color: rgba($color: #000000, $alpha: 0)
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: row;
+
+}
+
 .upperside {
     display: flex;
 
@@ -34,7 +52,6 @@ $background-color: rgba(247, 245, 241, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .title1 {
@@ -60,16 +77,18 @@ $background-color: rgba(247, 245, 241, 1);
 .comments {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 30px;
 }
 
 .button {
-    height: 25px;
-    width: 90px;
+    height: 30px;
+    width: 95px;
     background-color: rgb(78, 78, 78);
     color: rgba(247, 245, 241, 1);
     border-radius: 5px;
     border: none;
+    font-size: 14px;
 
     transition: all 0.3s ease 0s;
 }
